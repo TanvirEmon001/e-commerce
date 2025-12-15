@@ -1,11 +1,12 @@
 import 'package:e_commerce/app/app_routes.dart';
 import 'package:e_commerce/app/app_theme.dart';
 import 'package:e_commerce/app/providers/locale_language_provider.dart';
-import 'package:e_commerce/features/auth/presentation/screens/test_screen.dart';
+import 'package:e_commerce/features/common/presentation/providers/main_nav_container_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../features/auth/presentation/screens/splash_screen.dart';
 import '../l10n/app_localizations.dart';
 
 class EcommerceApp extends StatelessWidget {
@@ -18,13 +19,15 @@ class EcommerceApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => LocaleLanguageProvider()..loadInitialLanguage(),
         ),
+        ChangeNotifierProvider(create: (context) => MainNavContainerProvider(),)
       ],
       child: Consumer<LocaleLanguageProvider>(
         builder: (context, localeProvider, _) {
           return MaterialApp(
-            initialRoute: TestScreen.name,
+            initialRoute: SplashScreen.name,
             onGenerateRoute: AppRoutes.routes,
-            themeMode: .light,
+            debugShowCheckedModeBanner: false,
+            themeMode: .system,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             localizationsDelegates: [
