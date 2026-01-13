@@ -5,4 +5,5 @@ class AssetPaths {
   static const logoSvg = "$_basePath/logo.svg";
   static const logoNavPng = "$_basePath/logo_nav.png";
   static const logoNavSvg = "$_basePath/logo_nav.svg";
+  static const String dummyImagePng = '$_basePath/shoe.png';
 }
